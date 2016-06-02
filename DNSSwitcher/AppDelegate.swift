@@ -109,14 +109,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     func createDefaultConfigFile() {
+        // If the file doesn't exist, create it using the default
+        if !NSFileManager.defaultManager().fileExistsAtPath(self.configFilePath) {
+            let defaultFilePath = NSBundle.mainBundle().pathForResource("dnsswitcher.default", ofType: "json")
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(defaultFilePath!, toPath: self.configFilePath)
+            }
+            catch {
+                print("Critical error: failed to create default config file")
+                self.quit(nil)
+            }
+        }
+        // Else copy the contents of the default to the existing file
         let defaultFilePath = NSBundle.mainBundle().pathForResource("dnsswitcher.default", ofType: "json")
-        do {
-            try NSFileManager.defaultManager().copyItemAtPath(defaultFilePath!, toPath: self.configFilePath)
-        }
-        catch _ {
-            print("Critical error: failed to create default config file")
-            self.quit(nil)
-        }
+        let data = NSData(contentsOfFile: defaultFilePath!)
+        data?.writeToFile(self.configFilePath, atomically: true)
     }
 
     func checkForConfigUpdate() -> Bool {
