@@ -129,7 +129,7 @@
 				TargetAttributes = {
 					C9B374BF1D004CE6004C937E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = EZ7E3CWAPN;
+						DevelopmentTeam = 4U5N6YJ52K;
 					};
 				};
 			};
@@ -325,7 +325,7 @@
 			baseConfigurationReference = CE44B566929B3CE9B171FDE8 /* Pods-DNSSwitcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DNSSwitcher/Info.plist;
@@ -341,7 +341,7 @@
 			baseConfigurationReference = D1755474572D04ACCC2A17D1 /* Pods-DNSSwitcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DNSSwitcher/Info.plist;
