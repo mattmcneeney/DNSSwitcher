@@ -1,12 +1,12 @@
 {
-    "interface": "Wi-Fi",
-    "settings" : [
-        {
-            "name" : "Google",
-            "servers": [
-                "8.8.8.8",
-                "8.8.4.4"
-            ]
-        }
-    ]
+  "interface": "Wi-Fi",
+  "settings" : [
+    {
+      "name" : "Google",
+      "servers": [
+        "8.8.8.8",
+        "8.8.4.4"
+      ]
+    }
+  ]
 }
