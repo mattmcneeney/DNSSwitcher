@@ -13,14 +13,27 @@ class SettingItem {
 
     var name: String?
     var servers: [String]?
-    var interface: String?
     var loadCmd: String?
 
     init(json: JSON) {
         self.name = json["name"].string
         self.servers = json["servers"].arrayValue.map({ $0.string! })
-        self.interface = json["interface"].string
         self.loadCmd = json["load_cmd"].string
     }
     
+}
+
+extension SettingItem {
+
+    func export() -> [String: AnyObject] {
+        var data: [String: AnyObject] = [
+            "name": self.name!,
+            "servers": self.servers!
+        ]
+        if let loadCmd = self.loadCmd {
+            data["load_cmd"] = loadCmd
+        }
+        return data
+    }
+
 }

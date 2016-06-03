@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DNSSwitcher" customModuleProvider="target">
             <connections>
+                <outlet property="interfaceMenu" destination="3Bo-20-Lgl" id="y64-J3-JUi"/>
                 <outlet property="menu" destination="yrt-5f-NJd" id="hRY-rf-Plh"/>
                 <outlet property="versionItem" destination="saz-Gj-7jc" id="wp3-FE-7un"/>
             </connections>
@@ -689,6 +690,10 @@
                             </menuItem>
                         </items>
                     </menu>
+                </menuItem>
+                <menuItem title="Interface" id="dff-6H-eFG">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Interface" id="3Bo-20-Lgl"/>
                 </menuItem>
                 <menuItem title="About" id="XW3-f8-EyE">
                     <modifierMask key="keyEquivalentModifierMask"/>
