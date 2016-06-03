@@ -44,10 +44,10 @@
 <p>The structure of the configuration file must be as follows:</p>
 
 <pre><code>{
+   "interface": "...", // e.g. "Wi-Fi", can be chosen via the menu
    "settings": [
       {
          "name": "...",      // (Required) e.g. "Google"
-         "interface": "...", // (Required) e.g. "Wi-Fi"
          "servers": [ ... ]  // (Required) e.g. [ "8.8.8.8", "8.8.4.4" ],
          "load_cmd": "..."   // (Optional) e.g. "echo 'Hello, world!'"
       }
@@ -57,8 +57,6 @@
 
 <p><code>name</code>: The name of the setting that will be shown in the menu.</p>
 
-<p><code>interface</code>: The interface that you want to change the DNS settings for.</p>
-
 <p><code>servers</code>: A list of IP addresses of the DNS servers that should be used.</p>
 
 <p><code>load_cmd</code>: (optional) A shell command that should be run when these DNS servers are loaded.</p>
@@ -66,7 +64,7 @@
 <h3>
 <a id="changing-dns-settings" class="anchor" href="#changing-dns-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing DNS settings</h3>
 
-<p>Simply choose the DNS setting you want to change to and hit <em>Load</em>. You will be prompted for your login password to change your network preferences.</p>
+<p>Simply choose the DNS setting you want to change to and hit <em>Load</em>. You will be prompted for your login password to change your network preferences. The default interface that the DNS settings will be changed for is "Wi-Fi". This can be changed from the menu or via the configuration file as documented above.</p>
 
 <h3>
 <a id="support--contributions" class="anchor" href="#support--contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support / Contributions</h3>
