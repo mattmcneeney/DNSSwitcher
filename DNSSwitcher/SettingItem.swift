@@ -14,11 +14,13 @@ class SettingItem {
     var name: String?
     var servers: [String]?
     var interface: String?
+    var loadCmd: String?
 
     init(json: JSON) {
         self.name = json["name"].string
         self.servers = json["servers"].arrayValue.map({ $0.string! })
         self.interface = json["interface"].string
+        self.loadCmd = json["load_cmd"].string
     }
     
 }

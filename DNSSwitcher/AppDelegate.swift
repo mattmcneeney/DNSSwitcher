@@ -169,10 +169,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - Actions
 
     func setDNSServers(item: DNSMenuItem) {
+        // Check if we have a load command to run
+        if let loadCmd = item.setting.loadCmd {
+            let command: [String] = loadCmd.componentsSeparatedByString(" ")
+            let result = runCommand(command)
+            if result != 0 {
+                self.showAlert("Error", message: "Load command failed with exit code \(result).", style: NSAlertStyle.CriticalAlertStyle)
+                return
+            }
+        }
+
+        // Change the DNS settings
         let command: [String] = [ "networksetup", "-setdnsservers", item.setting.interface! ] + item.setting.servers!
         let result = runCommand(command)
         if result != 0 {
-            print("Error changing DNS servers: \(result)")
+            self.showAlert("Error", message: "DNS change failed with exit code \(result).", style: NSAlertStyle.CriticalAlertStyle)
+        }
+        else {
+            self.showAlert("DNS Changed", message: "Your DNS settings have been updated successfully.", style: NSAlertStyle.WarningAlertStyle)
         }
     }
 
@@ -183,6 +197,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         task.launch()
         task.waitUntilExit()
         return task.terminationStatus
+    }
+
+    func showAlert(title: String, message: String, style: NSAlertStyle) {
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText = message
+        alert.alertStyle = style
+        alert.addButtonWithTitle("OK")
+        alert.runModal()
     }
 
     @IBAction func editServers(sender: AnyObject) {
